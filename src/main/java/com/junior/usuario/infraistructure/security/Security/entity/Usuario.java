@@ -1,10 +1,8 @@
 package com.junior.usuario.infraistructure.security.Security.entity;
 
+import com.junior.usuario.Business.Dto.UsuarioDTO;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -18,7 +16,8 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @Table
-public class Usuario implements UserDetails {
+@Builder
+public class Usuario extends UsuarioDTO implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,7 +33,7 @@ public class Usuario implements UserDetails {
     private List<Endereco> enderecos;
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "usuario id", referencedColumnName = "id")
-    private List<Telefones> telefones;
+    private List<Telefone> telefones;
 
 
     @Override
