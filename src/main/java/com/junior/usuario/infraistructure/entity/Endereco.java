@@ -1,4 +1,4 @@
-package com.junior.usuario.infraistructure.security.Security.entity;
+package com.junior.usuario.infraistructure.entity;
 
 import  jakarta.persistence.*;
 import lombok.*;

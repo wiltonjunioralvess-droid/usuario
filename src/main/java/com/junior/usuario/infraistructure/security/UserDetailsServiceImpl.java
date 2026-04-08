@@ -1,8 +1,8 @@
-package com.junior.usuario.infraistructure.security.Security.security;
+package com.junior.usuario.infraistructure.security;
 
 
-import com.junior.usuario.infraistructure.security.Security.entity.Usuario;
-import com.junior.usuario.infraistructure.security.Security.repository.UsuarioRepository;
+import com.junior.usuario.infraistructure.entity.Usuario;
+import com.junior.usuario.infraistructure.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

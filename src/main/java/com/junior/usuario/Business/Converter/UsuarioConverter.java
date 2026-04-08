@@ -3,9 +3,9 @@ package com.junior.usuario.Business.Converter;
 import com.junior.usuario.Business.Dto.EnderecoDTO;
 import com.junior.usuario.Business.Dto.TelefoneDTO;
 import com.junior.usuario.Business.Dto.UsuarioDTO;
-import com.junior.usuario.infraistructure.security.Security.entity.Endereco;
-import com.junior.usuario.infraistructure.security.Security.entity.Telefone;
-import com.junior.usuario.infraistructure.security.Security.entity.Usuario;
+import com.junior.usuario.infraistructure.entity.Endereco;
+import com.junior.usuario.infraistructure.entity.Telefone;
+import com.junior.usuario.infraistructure.entity.Usuario;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -18,7 +18,7 @@ public class UsuarioConverter {
                 .nome(usuarioDTO.getNome())
                 .email(usuarioDTO.getEmail())
                 .senha(usuarioDTO.getSenha())
-                .enderecos(paralistaEndereco(usuarioDTO.getEnderecos()))
+                .endereco(paralistaEndereco(usuarioDTO.getEnderecos()))
                 .telefones(paraListaTelefones(usuarioDTO.getTelefones()))
                 .build();
     }
@@ -58,7 +58,7 @@ return enderecos;
                 .nome(usuarioDTO.getNome())
                 .email(usuarioDTO.getEmail())
                 .senha(usuarioDTO.getSenha())
-                .enderecos(paralistaEnderecoDTO(usuarioDTO.getEnderecos()))
+                .enderecos(paralistaEnderecoDTO(usuarioDTO.getEndereco()))
                 .telefones(paraListaTelefonesDTO(usuarioDTO.getTelefones()))
                 .build();
     }

@@ -1,4 +1,4 @@
-package com.junior.usuario.infraistructure.security.Security.security;
+package com.junior.usuario.infraistructure.security;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

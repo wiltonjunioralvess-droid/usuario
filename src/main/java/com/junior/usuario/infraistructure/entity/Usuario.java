@@ -1,6 +1,5 @@
-package com.junior.usuario.infraistructure.security.Security.entity;
+package com.junior.usuario.infraistructure.entity;
 
-import com.junior.usuario.Business.Dto.UsuarioDTO;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
@@ -17,7 +16,7 @@ import java.util.List;
 @Entity
 @Table
 @Builder
-public class Usuario extends UsuarioDTO implements UserDetails {
+public class Usuario implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,11 +27,13 @@ public class Usuario extends UsuarioDTO implements UserDetails {
     private String email;
     @Column(name = "senha")
     private String senha;
-    @OneToMany
-    @JoinColumn(name = "Usuario id", referencedColumnName = "id")
-    private List<Endereco> enderecos;
+
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "usuario id", referencedColumnName = "id")
+    @JoinColumn(name = "usuario_id", referencedColumnName = "id")
+    private List<Endereco> endereco;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "usuario_id", referencedColumnName = "id")
     private List<Telefone> telefones;
 
 
