@@ -1,6 +1,6 @@
-package com.junior.usuario.infraistructure.security.Security.repository;
+package com.junior.usuario.infraistructure.repository;
 
-import com.junior.teste1.infrastruture.entity.Endereco;
+import com.junior.usuario.infraistructure.entity.Endereco;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

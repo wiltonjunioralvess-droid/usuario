@@ -1,18 +1,16 @@
-package com.junior.usuario.infraistructure.security.Security.entity;
+package com.junior.usuario.infraistructure.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Builder
 @Table(name = "telefones")
-public class Telefones {
+public class Telefone {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long Id;
