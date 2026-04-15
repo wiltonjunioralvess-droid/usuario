@@ -1,9 +1,10 @@
 package com.junior.usuario.Controller;
 
+import com.junior.usuario.Business.Dto.EnderecoDTO;
+import com.junior.usuario.Business.Dto.TelefoneDTO;
 import com.junior.usuario.Business.Dto.UsuarioDTO;
 import com.junior.usuario.Business.UsuarioService;
 import com.junior.usuario.infraistructure.entity.Usuario;
-import com.junior.usuario.infraistructure.exepcion.ConflictException;
 import com.junior.usuario.infraistructure.repository.UsuarioRepository;
 import com.junior.usuario.infraistructure.security.JwtUtil;
 import lombok.RequiredArgsConstructor;
@@ -40,7 +41,7 @@ public class UsuarioController {
     }
 
     @GetMapping
-    public ResponseEntity<Usuario> buscaUsuarioEmail(@RequestParam("email") String email) {
+    public ResponseEntity<UsuarioDTO> buscaUsuarioEmail(@RequestParam("email") String email) {
         return ResponseEntity.ok(usuarioService.buscarUsuarioEmail(email));
 
     }
@@ -50,10 +51,23 @@ public class UsuarioController {
         usuarioService.deletaUsuarioPorEmail(email);
         return ResponseEntity.ok().build();
     }
-    @PostMapping
-    public ResponseEntity<UsuarioDTO> AtualizaDadosUsuario(@RequestBody UsuarioDTO dto,
-                                                           @RequestHeader("Authorization")  String token) {
-    return ResponseEntity.ok(usuarioService.atualizaDadosUsuario(token, dto));
+
+    @PostMapping("/usuario/atualizar")
+    public ResponseEntity<UsuarioDTO> atualizaDadosUsuario(@RequestBody UsuarioDTO DTO,
+                                                           @RequestHeader("Authorization") String token) {
+        return ResponseEntity.ok(usuarioService.atualizaDadosUsuario(token, DTO));
+    }
+
+    @PutMapping("/endereco")
+   public ResponseEntity<EnderecoDTO> atualizaEndereco(@RequestBody EnderecoDTO dto,
+                                                          @RequestParam("id") Long id) {
+        return ResponseEntity.ok(usuarioService.atualizaDadosUsuario(id, dto));
+    }
+
+    @PutMapping("/telefone")
+    public ResponseEntity<TelefoneDTO> atualizaTelefone(@RequestBody TelefoneDTO dto,
+                                                        @RequestParam("id") Long id) {
+        return ResponseEntity.ok(usuarioService.atualizaTelefone(id, dto));
     }
 
 }
