@@ -4,7 +4,7 @@ import com.junior.usuario.Business.Dto.EnderecoDTO;
 import com.junior.usuario.Business.Dto.TelefoneDTO;
 import com.junior.usuario.Business.Dto.UsuarioDTO;
 import com.junior.usuario.Business.UsuarioService;
-import com.junior.usuario.infraistructure.entity.Usuario;
+
 import com.junior.usuario.infraistructure.repository.UsuarioRepository;
 import com.junior.usuario.infraistructure.security.JwtUtil;
 import lombok.RequiredArgsConstructor;
